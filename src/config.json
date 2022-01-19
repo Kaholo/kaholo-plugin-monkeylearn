@@ -1,0 +1,110 @@
+{
+  "name": "MonkeyLearn",
+  "type": "executer",
+  "main": "app.js",
+  "execProgram": "node",
+  "exposeRoute": false,
+  "imgUrl": "logo.png",
+  "version": "1.0.1",
+  "description": "Run monkeylearn models on your data",
+  "category": [
+    "CLOUD",
+    "COMPUTE"
+  ],
+  "settings": [
+    {
+      "name": "MONKEYLEARN_API_KEY",
+      "viewName": "Monkeylearn API Key",
+      "type": "vault",
+      "description": "The default Monkeylearn API key to connect to Monkeylearn",
+      "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
+      "learnUrl": "https://monkeylearn.com/api/v3/#authentication"
+    }
+  ],
+  "methods": [
+    {
+      "name": "classifyText",
+      "viewName": "Classify Text",
+      "params": [
+        {
+          "name": "MONKEYLEARN_API_KEY",
+          "viewName": "API Key",
+          "type": "vault",
+          "description": "Monkeylearn API key",
+          "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
+          "learnUrl": "https://monkeylearn.com/api/v3/#authentication",
+          "required" : true
+        },
+        {
+          "name": "text",
+          "viewName": "Text",
+          "type": "string",
+          "placeholder": "Monkey has got skills to learn fast!",
+          "description": "Model identifer of the model to run",
+          "learnUrl": "https://monkeylearn.com/api/v3/#classify",
+          "required" : true
+        },
+        {
+          "name": "model",
+          "viewName": "Model",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getClassifierModels",
+          "placeholder": "Sentiment Analysis",
+          "description": "Model to run",
+          "learnUrl": "https://monkeylearn.com/text-classifiers/",
+          "required" : true
+        },
+        {
+          "name": "productionModel",
+          "viewName": "Production Model",
+          "type": "boolean",
+          "description": "Indicates if the classifications are performed by the production model.",
+          "learnUrl": "https://monkeylearn.com/api/v3/#classifier-api"
+        }
+      ]
+    },
+    {
+      "name": "extractText",
+      "viewName": "Extract Text",
+      "params": [
+        {
+          "name": "MONKEYLEARN_API_KEY",
+          "viewName": "API Key",
+          "type": "vault",
+          "description": "Monkeylearn API key",
+          "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
+          "learnUrl": "https://monkeylearn.com/api/v3/#authentication",
+          "required": true
+        },
+        {
+          "name": "text",
+          "viewName": "Text",
+          "type": "string",
+          "placeholder": "Monkey has got skills to learn fast!",
+          "description": "Model identifer of the model to run",
+          "learnUrl": "https://monkeylearn.com/api/v3/#extractor-api",
+          "required": true
+        },
+        {
+          "name": "model",
+          "viewName": "Model",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "getExtractorModels",
+          "placeholder": "Keyword Extractor",
+          "description": "Model to run",
+          "learnUrl": "https://monkeylearn.com/text-extractors/",
+          "required" : true
+        },
+        {
+          "name": "productionModel",
+          "viewName": "Production Model",
+          "type": "boolean",
+          "description": "Indicates if the classifications are performed by the production model.",
+          "learnUrl": "https://monkeylearn.com/api/v3/#classifier-api"
+        }
+      ]
+    }
+  ]
+}
