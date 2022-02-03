@@ -32,8 +32,7 @@
           "type": "vault",
           "description": "Monkeylearn API key",
           "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
-          "learnUrl": "https://monkeylearn.com/api/v3/#authentication",
-          "required" : true
+          "learnUrl": "https://monkeylearn.com/api/v3/#authentication"
         },
         {
           "name": "text",
@@ -74,8 +73,7 @@
           "type": "vault",
           "description": "Monkeylearn API key",
           "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
-          "learnUrl": "https://monkeylearn.com/api/v3/#authentication",
-          "required": true
+          "learnUrl": "https://monkeylearn.com/api/v3/#authentication"
         },
         {
           "name": "text",
