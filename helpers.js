@@ -1,4 +1,11 @@
 const MonkeyLearn = require('monkeylearn')
+const parsers = require('./parsers')
+
+function extractApiKey(params, settings) {
+    const key = parsers.string(params.MONKEYLEARN_API_KEY) || parsers.string(settings.MONKEYLEARN_API_KEY)
+    if (!key) throw new Error("API Key is required")
+    return key
+}
 
 async function classifyIt(params) {
     const ml = new MonkeyLearn(params.apiKey)
@@ -19,13 +26,14 @@ async function extractIt(params) {
 }
 
 
-async function getMonkeylearnModels(modelType, params) {
-    const ml = new MonkeyLearn(params.MONKEYLEARN_API_KEY);
+async function getMonkeylearnModels(modelType, apiKey) {
+    const ml = new MonkeyLearn(apiKey);
     return ml[modelType].list();
 }
 
 module.exports = {
     classifyIt,
     extractIt,
-    getMonkeylearnModels
+    getMonkeylearnModels,
+    extractApiKey
 }

@@ -1,4 +1,4 @@
-const { getMonkeylearnModels } = require('./helpers');
+const { getMonkeylearnModels, extractApiKey } = require('./helpers');
 const parsers = require('./parsers');
 
 function mapParams(actionParams) {
@@ -11,7 +11,8 @@ function mapParams(actionParams) {
 
 async function getClassifierModels(query, pluginSettings, actionParams) {
     const params = mapParams(actionParams);
-    const modelResponse = await getMonkeylearnModels('classifiers', params);
+    const settings = mapParams(pluginSettings);
+    const modelResponse = await getMonkeylearnModels('classifiers', extractApiKey(params, settings));
     const models = modelResponse.body.map(model => {
         return {
             id: model.id,
@@ -23,7 +24,8 @@ async function getClassifierModels(query, pluginSettings, actionParams) {
 
 async function getExtractorModels(query, pluginSettings, actionParams) {
     const params = mapParams(actionParams);
-    const modelResponse = await getMonkeylearnModels('extractors', params);
+    const settings = mapParams(pluginSettings);
+    const modelResponse = await getMonkeylearnModels('extractors', extractApiKey(params, settings));
     const models = modelResponse.body.map(model => {
         return {
             id: model.id,

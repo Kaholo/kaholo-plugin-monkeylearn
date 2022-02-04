@@ -1,4 +1,4 @@
-const { classifyIt, extractIt } = require('./helpers');
+const { classifyIt, extractIt, extractApiKey } = require('./helpers');
 const parsers = require('./parsers');
 
 async function classifyText(action, settings) {
@@ -6,10 +6,8 @@ async function classifyText(action, settings) {
         text: parsers.string(action.params.text),
         modelId: parsers.string(action.params.model.id),
         productionModel: parsers.boolean(action.params.productionModel),
-        apiKey : parsers.string(action.params.MONKEYLEARN_API_KEY) || settings.MONKEYLEARN_API_KEY,
+        apiKey: extractApiKey(action.params, settings)
     };
-
-    if (!params.apiKey) throw new Error("API Key is required")
 
     const classifyResponse = await classifyIt(params);
 
@@ -22,10 +20,8 @@ async function extractText(action, settings) {
         text: parsers.string(action.params.text),
         modelId: parsers.string(action.params.model.id),
         productionModel: parsers.boolean(action.params.productionModel),
-        apiKey : parsers.string(action.params.MONKEYLEARN_API_KEY) || settings.MONKEYLEARN_API_KEY,
+        apiKey: extractApiKey(action.params, settings)
     };
-
-    if (!params.apiKey) throw new Error("API Key is required")
 
     const extractResponse = await extractIt(params);
 
