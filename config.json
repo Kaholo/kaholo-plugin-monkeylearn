@@ -1,5 +1,6 @@
 {
   "name": "MonkeyLearn",
+  "viewName": "MonkeyLearn",
   "type": "executer",
   "main": "app.js",
   "execProgram": "node",
@@ -11,6 +12,14 @@
     "CLOUD",
     "COMPUTE"
   ],
+  "keywords": [
+    "monkeylearn",
+    "api",
+    "models",
+    "text",
+    "classifier",
+    "extractor"
+   ],
   "settings": [
     {
       "name": "MONKEYLEARN_API_KEY",
@@ -30,7 +39,7 @@
           "name": "MONKEYLEARN_API_KEY",
           "viewName": "API Key",
           "type": "vault",
-          "description": "Monkeylearn API key",
+          "description": "MonkeyLearn API key",
           "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
           "learnUrl": "https://monkeylearn.com/api/v3/#authentication"
         },
@@ -39,7 +48,7 @@
           "viewName": "Text",
           "type": "string",
           "placeholder": "Monkey has got skills to learn fast!",
-          "description": "Model identifer of the model to run",
+          "description": "Text to be classified",
           "learnUrl": "https://monkeylearn.com/api/v3/#classify",
           "required" : true
         },
@@ -71,7 +80,7 @@
           "name": "MONKEYLEARN_API_KEY",
           "viewName": "API Key",
           "type": "vault",
-          "description": "Monkeylearn API key",
+          "description": "MonkeyLearn API key",
           "placeholder": "ce8ca6e451f37c04f2bd606515fae092137d8563",
           "learnUrl": "https://monkeylearn.com/api/v3/#authentication"
         },
@@ -80,7 +89,7 @@
           "viewName": "Text",
           "type": "string",
           "placeholder": "Monkey has got skills to learn fast!",
-          "description": "Model identifer of the model to run",
+          "description": "Text to be extracted",
           "learnUrl": "https://monkeylearn.com/api/v3/#extractor-api",
           "required": true
         },
@@ -100,7 +109,7 @@
           "viewName": "Production Model",
           "type": "boolean",
           "description": "Indicates if the classifications are performed by the production model.",
-          "learnUrl": "https://monkeylearn.com/api/v3/#classifier-api"
+          "learnUrl": "https://monkeylearn.com/api/v3/#extractor-api"
         }
       ]
     }
